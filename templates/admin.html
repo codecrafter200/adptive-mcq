@@ -1,0 +1,106 @@
+
+<!-- templates/admin.html -->
+{% extends 'base.html' %}
+
+{% block title %}Admin Panel{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Admin Panel</h2>
+        <p class="lead">Manage topics and questions for the adaptive learning system.</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Add New Topic</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" action="{{ url_for('add_topic') }}">
+                    <div class="mb-3">
+                        <label for="topic_name" class="form-label">Topic Name</label>
+                        <input type="text" class="form-control" id="topic_name" name="topic_name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="topic_description" class="form-label">Topic Description</label>
+                        <textarea class="form-control" id="topic_description" name="topic_description" rows="3"
+                            required></textarea>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Add Topic</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Add New Question</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" action="{{ url_for('add_question') }}">
+                    <div class="mb-3">
+                        <label for="question_text" class="form-label">Question Text</label>
+                        <textarea class="form-control" id="question_text" name="question_text" rows="3"
+                            required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="topic_id" class="form-label">Select Topic</label>
+                        <select class="form-select" id="topic_id" name="topic_id" required>
+                            {% for topic in topics %}
+                            <option value="{{ topic.id }}">{{ topic.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="options" class="form-label">Options (comma-separated)</label>
+                        <input type="text" class="form-control" id="options" name="options" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correct_option" class="form-label">Correct Option</label>
+                        <input type="text" class="form-control" id="correct_option" name="correct_option" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Add Question</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Manage Topics and Questions</h5>
+            </div>
+            <div class="card-body">
+                <h5>Existing Topics</h5>
+                <ul class="list-group mb-4">
+                    {% for topic in topics %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ topic.name }}
+                        <a href="{{ url_for('delete_topic', topic_id=topic.id) }}"
+                            class="btn btn-danger btn-sm">Delete</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <h5>Existing Questions</h5>
+                <ul class="list-group
+                    {% for question in questions %}
+                    <li class=" list-group -item d-flex justify-content-between align-items-center">
+                    {{ question.text }}
+                    <a href="{{ url_for('delete_question', question_id=question.id) }}"
+                        class="btn btn-danger btn-sm">Delete</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

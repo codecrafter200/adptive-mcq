@@ -1,0 +1,29 @@
+
+<!-- templates/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}AI Adaptive Learning - Home{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body text-center py-5">
+                <h1 class="display-4 mb-4">Welcome to AI Adaptive Learning</h1>
+                <p class="lead">
+                    Our intelligent system adapts to your knowledge level and provides
+                    personalized learning experiences through adaptive MCQs.
+                </p>
+                <div class="mt-5">
+                    {% if 'user_id' in session %}
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-primary btn-lg px-4">Go to Dashboard</a>
+                    {% else %}
+                    <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg px-4 me-2">Login</a>
+                    <a href="{{ url_for('register') }}" class="btn btn-outline-primary btn-lg px-4">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{
+    "LO_1": {
+        "question": "What is the correct way to define a list in Python?",
+        "options": ["list = [1, 2, 3]", "list = (1, 2, 3)", "list = {1, 2, 3}", "list = '1, 2, 3'"],
+        "correct": "list = [1, 2, 3]"
+    },
+    "LO_2": {
+        "question": "How do you define a function in Python?",
+        "options": ["function my_function():", "def my_function():", "define my_function():", "func my_function():"],
+        "correct": "def my_function():"
+    }
+}

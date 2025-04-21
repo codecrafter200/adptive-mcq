@@ -1,0 +1,27 @@
+{
+    "LO_1": {
+        "question": "What is the correct way to define a list in Python?",
+        "options": ["list = [1, 2, 3]", "list = (1, 2, 3)", "list = {1, 2, 3}", "list = '1, 2, 3'"],
+        "correct": "list = [1, 2, 3]"
+    },
+    "LO_2": {
+        "question": "How do you define a function in Python?",
+        "options": ["function my_function():", "def my_function():", "define my_function():", "func my_function():"],
+        "correct": "def my_function():"
+    },
+    "LO_3": {
+        "question": "Which keyword is used to create a class in Python?",
+        "options": ["class", "def", "object", "create"],
+        "correct": "class"
+    },
+    "LO_4": {
+        "question": "Which library is commonly used for numerical computations in Python?",
+        "options": ["Matplotlib", "Pandas", "NumPy", "Flask"],
+        "correct": "NumPy"
+    },
+    "LO_5": {
+        "question": "What is the purpose of unit testing in Python?",
+        "options": ["To improve performance", "To ensure code correctness", "To debug runtime errors", "To optimize memory usage"],
+        "correct": "To ensure code correctness"
+    }
+}

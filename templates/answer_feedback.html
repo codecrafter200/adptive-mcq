@@ -1,0 +1,35 @@
+
+<!-- templates/answer_feedback.html -->
+{% extends 'base.html' %}
+
+{% block title %}Answer Feedback{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Answer Feedback</h5>
+            </div>
+            <div class="card-body text-center">
+                {% if is_correct %}
+                <div class="display-1 mb-4"><i class="bi bi-check-circle-fill text-success"></i></div>
+                <h3 class="feedback-correct mb-4">Correct!</h3>
+                {% else %}
+                <div class="display-1 mb-4"><i class="bi bi-x-circle-fill text-danger"></i></div>
+                <h3 class="feedback-incorrect mb-4">Incorrect</h3>
+                {% endif %}
+
+                <div class="mb-4">
+                    <p>{{ explanation }}</p>
+                </div>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <a href="{{ url_for('quiz', topic_id=topic_id) }}" class="btn btn-primary">Next Question</a>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">Back to Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

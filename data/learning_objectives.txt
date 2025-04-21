@@ -1,0 +1,5 @@
+Understand basic Python syntax and data structures.
+Learn how to write functions and handle exceptions in Python.
+Master object-oriented programming concepts in Python.
+Explore advanced Python libraries such as NumPy and Pandas.
+Gain proficiency in debugging and testing Python code.

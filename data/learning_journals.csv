@@ -1,0 +1,6 @@
+user_id,date,journal_text
+1,2023-10-01,"Today I learned about Python lists and dictionaries. I found lists easy to use but struggled with dictionary methods."
+2,2023-10-02,"I tried writing a function to calculate the factorial of a number, but I'm confused about recursive calls."
+3,2023-10-03,"Explored object-oriented programming today. Classes and inheritance seem straightforward, but I have doubts about polymorphism."
+4,2023-10-04,"Worked on NumPy arrays and operations. I think I understand broadcasting, but I need more practice."
+5,2023-10-05,"Debugged my code using print statements. It worked, but I want to learn better debugging tools."

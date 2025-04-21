@@ -1,0 +1,78 @@
+
+<!-- templates/dashboard.html -->
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <h2>Welcome to your Learning Dashboard</h2>
+        <p class="lead">Track your progress and continue learning with AI-powered adaptive questions.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Recent Performance</h5>
+            </div>
+            <div class="card-body text-center">
+                <div class="display-4 mb-3">{{ "%.1f"|format(recent_performance) }}%</div>
+                <p>Success rate over your last 10 questions</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Your Skill Levels</h5>
+            </div>
+            <div class="card-body">
+                {% for topic in topics %}
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>{{ topic.name }}</span>
+                        <span>{{ "%.1f"|format(user_skills[topic.id]) }}%</span>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: {{ user_skills[topic.id] }}%"></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Topics</h5>
+            </div>
+            <div class="card-body">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% for topic in topics %}
+                    <div class="col">
+                        <div class="card h-100 question-card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ topic.name }}</h5>
+                                <p class="card-text">Practice questions adapted to your skill level: {{
+                                    "%.1f"|format(user_skills[topic.id]) }}%</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0">
+                                <a href="{{ url_for('quiz', topic_id=topic.id) }}" class="btn btn-primary">Practice
+                                    Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

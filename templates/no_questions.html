@@ -1,0 +1,22 @@
+
+<!-- templates/no_questions.html -->
+{% extends 'base.html' %}
+
+{% block title %}No Questions Available{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0">No Questions Available</h5>
+            </div>
+            <div class="card-body text-center">
+                <p class="lead">There are currently no questions available for {{ topic.name }}.</p>
+                <p>Please check back later or try another topic.</p>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary">Return to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
